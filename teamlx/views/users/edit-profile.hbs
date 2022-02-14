@@ -1,0 +1,17 @@
+<h3>Update Your Information:</h3>
+
+<form action="/users/{{user-profile}}/edit" method="post">
+  <label>
+    <input type="text" name="username" value="{{username}}" />
+  </label>
+
+  <label>
+    <input type="text" name="email" value="{{email}}" />
+  </label>
+
+  <label>
+    <input type="text" name="password" value="{{passwordHash}}" />
+  </label>
+
+  <button>Update</button>
+</form>

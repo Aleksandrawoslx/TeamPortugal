@@ -19,7 +19,8 @@ const app = express();
 require("./config")(app);
 
 const projectName = "teamlx";
-const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
+const capitalized = (string) =>
+  string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
@@ -28,7 +29,7 @@ const index = require("./routes/index");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
+app.use("/", authRoutes);
 
 const postRoutes = require("./routes/posts");
 app.use("/posts", postRoutes);
