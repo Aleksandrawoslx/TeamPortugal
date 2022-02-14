@@ -31,6 +31,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
+const userRoutes = require("./routes/users");
+app.use("/", userRoutes);
+
 const postRoutes = require("./routes/posts");
 app.use("/posts", postRoutes);
 
