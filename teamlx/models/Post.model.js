@@ -6,13 +6,12 @@ const postSchema = new Schema(
     description: String,
     link: String,
     username: { type: Schema.Types.ObjectId, ref: "User" },
-    category: String,
   },
   {
     timestamps: true,
   }
 );
 
-const User = model("Post", postSchema);
+const Post = model("Post", postSchema);
 
 module.exports = Post;
