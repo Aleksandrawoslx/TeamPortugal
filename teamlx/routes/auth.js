@@ -14,10 +14,9 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-let a = 4 
-console.log(a)
+
 router.get("/signup", isLoggedOut, (req, res) => {
-  const a = 3;
+  const b = 2;
   res.render("auth/signup");
 });
 
