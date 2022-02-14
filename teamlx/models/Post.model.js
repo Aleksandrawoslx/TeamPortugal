@@ -2,10 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema(
   {
-    header: String,
-    description: String,
-    link: URL,
-    username: { type: Schema.Types.ObjectId, ref: "User" },
+    header: { type: String, required: true},
+    description: { type: String, required: true},
+    link: String,
+    author: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,
