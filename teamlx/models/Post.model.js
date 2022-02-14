@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
+const postSchema = new Schema(
   {
     header: String,
     description: String,
-    link: URL,
+    link: String,
     username: { type: Schema.Types.ObjectId, ref: "User" },
     category: String,
   },
@@ -13,6 +13,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("Post", userSchema);
+const User = model("Post", postSchema);
 
 module.exports = Post;

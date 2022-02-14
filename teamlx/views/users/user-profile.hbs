@@ -1,0 +1,10 @@
+<h1>Profile Page</h1>
+
+{{#if userInSession}}
+  <h2>Welcome, {{userInSession.username}}!</h2>
+  <button>
+    <a href="/user-profile">Delete Account</a>
+  </button>
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}
