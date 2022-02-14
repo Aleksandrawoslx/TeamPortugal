@@ -15,20 +15,20 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+  res.render("auth/register");
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
   const { username, password } = req.body;
 
   if (!username) {
-    return res
-      .status(400)
-      .render("auth/signup", { errorMessage: "Please provide your username." });
+    return res.status(400).render("auth/register", {
+      errorMessage: "Please provide your username.",
+    });
   }
 
   if (password.length < 8) {
-    return res.status(400).render("auth/signup", {
+    return res.status(400).render("auth/register", {
       errorMessage: "Your password needs to be at least 8 characters long.",
     });
   }
@@ -51,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+        .render("auth/register", { errorMessage: "Username already taken." });
     }
 
     // if user is not found, create a new user - start with hashing the password
