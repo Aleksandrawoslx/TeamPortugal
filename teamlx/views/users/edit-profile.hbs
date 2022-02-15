@@ -1,16 +1,16 @@
 <h3>Update Your Information:</h3>
 
-<form action="/users/{{_id}}/edit" method="post">
+<form action="{{user_id}}/edit" method="post">
   <label>
-    <input type="text" name="username" value="{{username}}" />
+    <input type="text" name="username" value="{{user.username}}" />
   </label>
 
   <label>
-    <input type="text" name="email" value="{{email}}" />
+    <input type="text" name="email" value="{{user.email}}" />
   </label>
 
   <label>
-    <input type="text" name="password" value="{{passwordHash}}" />
+    <input type="text" name="password" value="{{user.passwordHash}}" />
   </label>
 
   <button>Update</button>

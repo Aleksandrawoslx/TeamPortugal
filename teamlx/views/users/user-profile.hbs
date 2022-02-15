@@ -2,11 +2,11 @@
 {{#if userInSession}}
   <h2>Hello, {{userInSession.username}}!</h2>
   <button>
-    <a href="/edit-profile">Update Your Profile Information</a>
+    <a href="/users/edit">Update Your Profile Information</a>
   </button> </br>
-  <button>
-    <a href="/user-profile">Delete Your Account</a>
-  </button>
+  <form action="/users/{{_id}}/delete" method="POST"> <!-- what is the correct path? -->
+            <button>Delete Your Account</button>
+  </form>
 {{else}}
   <p>Still no logged in user, sorry!</p>
 {{/if}}

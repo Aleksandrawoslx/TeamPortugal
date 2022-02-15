@@ -10,7 +10,7 @@ const saltRounds = 10;
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
 
-// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
+// Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
@@ -154,6 +154,59 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 router.get("/profile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.user });
 });
+
+// router.get("/edit", isLoggedIn, (req, res) => {
+//   res.render("edit-profile", { userInSession: req.session.user });
+// });
+
+// /////
+// ////////
+
+// router.get("/:id/edit", (req, res, next) => {
+//   const { id } = req.params;
+//   console.log("req.params:", req.params);
+//   User.findById(id)
+//     .then((userDetails) => {
+//       console.log("user to edit:", userDetails);
+//       res.render("users/edit-profile", { user: userDetails });
+//     })
+//     .catch((err) => {
+//       console.log("Error getting user details from DB...", err);
+//     });
+// });
+
+// router.post("/:id/edit", (req, res, next) => {
+//   console.log("req.params:", req.params);
+//   const { userId } = req.params;
+//   const { username, email, passwordHash } = req.body;
+//   User.findByIdAndUpdate(
+//     userId,
+//     { username, email, passwordHash },
+//     { new: true }
+//   )
+//     .then(() => {
+//       res.redirect("/profile");
+//     })
+//     .catch((err) => {
+//       console.log("Error updating profile...", err);
+//     });
+// });
+
+// router.post("/:id/delete", (req, res, next) => {
+//   const { id } = req.params;
+//   console.log("req.params:", req.params);
+//   User.findByIdAndDelete(id)
+//     .then(() => {
+//       res.redirect("/signup");
+//       console.log("deleting profile successful");
+//     })
+//     .catch((err) => {
+//       console.log("Error deleting user...", err);
+//     });
+// });
+
+// ////////
+// /////
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {

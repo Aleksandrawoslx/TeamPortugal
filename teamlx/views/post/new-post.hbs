@@ -1,13 +1,21 @@
 <form action="/posts/create" method="post">
   <label>
-    Header:
-    <input type="text" name="header" />
+    <input
+      type="text"
+      name="header"
+      placeholder="Choose a descriptive title for what you want to share"
+    />
   </label>
   <br />
 
   <label>
-    Description:
-    <textarea name="description" cols="30" rows="4"> </textarea>
+    <textarea
+      name="description"
+      placeholder="Write a brief summary of what you want to share"
+      maxlength="300"
+      cols="30"
+      rows="4"
+    ></textarea>
   </label>
 
   <button type="submit"> Create </button>

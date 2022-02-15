@@ -10,3 +10,15 @@ a {
 h1 {
   color: 15px;
 }
+
+.title-newseater {
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.title-newseater,
+.homepage-paragraph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
