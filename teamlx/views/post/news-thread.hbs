@@ -1,5 +1,59 @@
-<form class="search"></form>
+{{!-- {{#each article}}
+  <div class="container">
+    <h3>{{this.title}}</h3>
+    <br />
+    <p>{{this.description}}</p><br />
+    <a href="{{this.url}}">Read the full article</a>
+    <br />
+    <img
+      class="news-images"
+      src="{{this.urlToImage}}"
+      alt="image related to the news"
+    />
 
-<div class="container">
-  <ul class="class-list"></ul>
-</div>
+  </div>
+{{/each}} --}}
+
+<div class="posts-all"></div>
+{{#each article}}
+
+  <div class="card" style="width: 18rem;">
+    <img src="{{this.urlToImage}}" class="card-img-top" alt="image" />
+    <div class="card-body">
+      <h6 class="card-title">{{this.title}}</h6>
+      <p class="card-text">{{this.description}}</p>
+      <a href="{{this.url}}" class="card-link">Read the full article</a>
+    </div>
+  </div>
+
+  </div>
+
+{{/each}}
+{{!-- 
+{{#each article}}
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4">{{this.title}}</p>
+        </div>
+      </div>
+
+      <div class="content">
+        {{this.description}}
+        <br />
+        <a href="{{this.url}}">Read the full article</a>
+        <br />
+      </div>
+    </div>
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img
+          class="news-images"
+          src="{{this.urlToImage}}"
+          alt="Placeholder image"
+        />
+      </figure>
+    </div>
+  </div>
+{{/each}} --}}

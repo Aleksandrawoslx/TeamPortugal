@@ -3,24 +3,22 @@ const NewsAPI = require("newsapi");
 
 router.get("/", (req, res) => {
   // res.send("news");
-  res.render("post/news-thread");
-
-  // res.send("news")
 
   const newsapi = new NewsAPI(process.env.API_KEY);
 
   newsapi.v2
     .everything({
-      q: "bitcoin",
+      //q: "bitcoin",
+      domains:
+        "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com",
       language: "en",
     })
     .then((data) => {
-      console.log(data);
-      res.render("post/news-thread");
+      console.log(data.articles);
+      res.render("post/news-thread", { article: data.articles });
     })
-    .then((data) => {
-      console.log(data);
-      res.render("post/news-thread");
+    .catch((err) => {
+      console.log(err);
     });
 });
 

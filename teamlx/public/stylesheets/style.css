@@ -22,3 +22,22 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+.news-images {
+  object-fit: cover;
+}
+
+.card {
+  margin: 2rem;
+}
+
+.posts-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-weight: bold;
+}
