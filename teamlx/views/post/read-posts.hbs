@@ -1,13 +1,19 @@
-<h2>Main thread</h2>
-
-<section class="posts-details">
 
 
-  {{#each posts}}
- 
-    {{>postCard this}}
-    
-  {{/each}}
-</section>
+<h3>Your Posts</h3>
 
-<a href="/posts/read-posts">Back</a>
+<div class="posts-details"></div>
+{{#each posts}}
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title">{{this.header}}</h6>
+      <p class="card-text">{{this.description}}</p>
+    </div>
+  </div>
+
+  </div>
+
+{{/each}}
+
+  </div>

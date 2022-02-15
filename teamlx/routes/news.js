@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
       domains:
         "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com",
       language: "en",
+      page: 1,
     })
     .then((data) => {
       console.log(data.articles);
