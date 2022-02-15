@@ -12,6 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+hbs.registerPartials(__dirname + "/views/partials")
 
 const app = express();
 
@@ -35,6 +36,7 @@ const postRoutes = require("./routes/posts");
 app.use("/posts", postRoutes);
 
 const newsRoutes = require("./routes/news");
+const isLoggedIn = require("./middleware/isLoggedIn");
 app.use("/news", newsRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
