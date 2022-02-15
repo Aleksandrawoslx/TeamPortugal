@@ -1,5 +1,5 @@
 const Post = require("../models/Post.model");
-const User =require("../models/User.model")
+const User = require("../models/User.model");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 const router = require("express").Router();

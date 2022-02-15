@@ -1,11 +1,5 @@
 <div id="form">
-  <h3>Fill the form below to create an account</h3>
-
-  {{#if errorMessage}}
-    <p class="error">
-      {{errorMessage}}
-    </p>
-  {{/if}}
+  <h5>Fill the form below to create an account</h5>
 
   <form action="/signup" method="POST">
     <label>
@@ -35,3 +29,9 @@
   </p>
 
 </div>
+
+{{#if errorMessage}}
+  <p class="error">
+    {{errorMessage}}
+  </p>
+{{/if}}

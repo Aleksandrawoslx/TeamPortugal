@@ -1,26 +1,26 @@
 const router = require("express").Router();
-const NewsAPI = require('newsapi');
+const NewsAPI = require("newsapi");
 
-router.get("/", (req, res) =>{
+router.get("/", (req, res) => {
+  // res.send("news");
 
-    res.send("news")
+  const newsapi = new NewsAPI(process.env.API_KEY);
 
-    const newsapi = new NewsAPI(process.env.API_KEY);
-
-    newsapi.v2.everything({
-        q: 'bitcoin',
-        language: 'en',    
+  newsapi.v2
+    .everything({
+      //q: "bitcoin",
+      domains:
+        "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com, cnet.com",
+      language: "en",
+      page: 1,
     })
-    .then(data=>{
-       
-       res.render("post/news-thread")
+    .then((data) => {
+      console.log(data.articles);
+      res.render("post/news-thread", { article: data.articles });
     })
-
-
-})
-
-
-
-
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 module.exports = router;

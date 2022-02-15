@@ -1,9 +1,5 @@
 <div id="form">
-  <h3>Fill the form below to login</h3>
-
-  {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-  {{/if}}
+  <h5>Fill the form below to login</h5>
 
   <form action="/login" method="POST">
 
@@ -16,6 +12,7 @@
     <label>
       <input type="password" name="password" placeholder="password" required />
     </label>
+    <br />
 
     <button type="submit">Login</button>
 
@@ -26,3 +23,7 @@
     <a href="/signup">here</a>.
   </p>
 </div>
+
+{{#if errorMessage}}
+  <p class="error">{{errorMessage}}</p>
+{{/if}}
