@@ -4,38 +4,70 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #0b6081;
 }
 
 h1 {
   color: 15px;
 }
 
-.title-newseater {
-  font-size: x-large;
-  font-weight: bolder;
-}
-
-.title-newseater,
-.homepage-paragraph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.news-images {
-  object-fit: cover;
-}
-
-.card {
-  margin: 2rem;
-}
-
-.posts-all {
+.container,
+#form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+button {
+  padding: 5%;
+  margin: auto;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 1rem;
+}
+
+.news-thread,
+.profile-hello {
+  margin-top: 2rem;
+}
+
+.profile-hello {
+  margin-top: 5rem;
+}
+
+.posts-all,
+.profile-hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-buttons {
+  padding: 0;
+  margin-top: 2rem;
+  background-color: transparent;
+}
+
+#delete-account {
+  padding: 1rem;
+  margin-top: 0;
+  text-decoration: underline;
+  color: #0b6081;
 }
 
 .card-title {
