@@ -2,15 +2,10 @@
 
 <section class="posts-details">
 
+
   {{#each posts}}
-    <p>
-      Header:
-      {{this.header}}
-    </p>
-    <p>
-    Description:
-    {{this.description}}
-    </p>
+ 
+    {{>postCard this}}
     
   {{/each}}
 </section>
