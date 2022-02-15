@@ -40,8 +40,7 @@ button {
   margin: 1rem;
 }
 
-.news-thread,
-.profile-hello {
+.news-thread {
   margin-top: 2rem;
 }
 
@@ -50,7 +49,8 @@ button {
 }
 
 .posts-all,
-.profile-hello {
+.profile-hello,
+.profile-hello-p {
   display: flex;
   flex-direction: column;
   align-items: center;

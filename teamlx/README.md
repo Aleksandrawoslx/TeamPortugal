@@ -1,31 +1,25 @@
-# Routes: 
+# NewsEater 
 
-## /auth 
-1. user register (GET & POST)
-2. user login (GET & POST)
+## Introduction
 
-## /user
-Userprofile, settings, updates, delete account?
-1. user profile (GET & POST)
-2. user update (GET & POST)  -- we might not need to update the user profile; deleting it might be enough for now
-3. user delete account (POST)
+This website was our second project for the Ironhack's Web Development Bootcamp.
 
-## /create
-1. create post (GET&POST)
-2. edit post (GET&POST) - instead of updating the user profile, we can have the opportunity to update the post instead
-3. delete post (GET&POST)
+You can visit it here: <insert heroku link>
 
-## /read
-1. posts updated (homepage) get request from database (GET)
-2. newsapi setup (GET)
+## Technologies and Tools
 
-## /index
-homepage
+For this MVP we used: HTML, CSS, JavaScript, MongoDB, Express.js, Ironlauncher API, NewsAPI and Editor.js.
 
-## Views
+## MVP
 
-*TODO*
+This MVP includes a homepage, <insert what it includes once it's finished>.
 
-## Partials 
+The website is responsive enough to be used on a mobile device.
 
-*TODO*
+## Team 
+
+Alexandra Wos & Ana Pavão
+
+# Slides:
+
+Link for our presentation slides: <insert link>
