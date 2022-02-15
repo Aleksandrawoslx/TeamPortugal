@@ -20,10 +20,11 @@ router.get("/create",isLoggedIn, (req,res,next)=>{
 
 router.post("/create",isLoggedIn, (req,res,next)=>{
     console.log(req.session)
+    console.log(req.body.blocks)
+
     const postDetails = {
-        header: req.body.header,
-        description: req.body.description,
-        link: req.body.link,
+     
+        content: req.body.blocks,
         author: req.session.user._id
     }
     Post.create(postDetails)

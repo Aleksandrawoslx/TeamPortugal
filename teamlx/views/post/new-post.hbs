@@ -1,13 +1,8 @@
 
-<form action="/posts/create" method="post">
+<div id="editor">MY POST</div>
 
-  <label> Header:
-    <input type="text" name="header" />
-  </label>
+<button id="editorSend">Send</button>
 
-  <label> Description:
-    <textarea name="description" cols="30" rows="4"> </textarea>
-  </label>
-
-  <button type="submit"> Post </button>
-</form>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
