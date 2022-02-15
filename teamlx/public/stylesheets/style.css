@@ -72,7 +72,8 @@ button {
 
 .card-title {
   font-weight: bold;
+}
 
-  #editor {
-    border: 1px solid red
-  }
+#editor {
+  border: 1px solid red
+}
