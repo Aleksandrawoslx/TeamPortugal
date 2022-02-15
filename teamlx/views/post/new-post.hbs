@@ -1,22 +1,8 @@
-<form action="/posts/create" method="post">
-  <label>
-    <input
-      type="text"
-      name="header"
-      placeholder="Choose a descriptive title for what you want to share"
-    />
-  </label>
-  <br />
 
-  <label>
-    <textarea
-      name="description"
-      placeholder="Write a brief summary of what you want to share"
-      maxlength="300"
-      cols="30"
-      rows="4"
-    ></textarea>
-  </label>
+<div id="editor">MY POST</div>
 
-  <button type="submit"> Post </button>
-</form>
+<button id="editorSend">Send</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
