@@ -6,7 +6,16 @@
 <p>{{this.author.username}}</p>
 
 {{#each this.content}}
-    {{this.data.text}}
+    {{#if this.data.text}}
+        {{this.data.text}}
+    {{/if}}
+
+    {{#if this.data.embed}}
+
+        <iframe width="560" height="315" src={{this.data.embed}}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+    {{/if}}
+    
 {{/each}}
 
 

@@ -8,14 +8,13 @@ router.get("/", (req, res) => {
 
   newsapi.v2
     .everything({
-      //q: "bitcoin",
-      domains:
-        "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com, cnet.com",
+      q: process.env.newsTopic,
+      
       language: "en",
-      page: 1,
+    
     })
     .then((data) => {
-      console.log(data.articles);
+      
       res.render("post/news-thread", { article: data.articles });
     })
     .catch((err) => {

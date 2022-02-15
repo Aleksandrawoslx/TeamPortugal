@@ -7,6 +7,8 @@ document.addEventListener(
       
       minHeight: 50,
       holder: "editor",
+      autofocus: true,
+      placeholder: "Your article here",
       tools: {
         header: {
           class: Header,
@@ -16,6 +18,18 @@ document.addEventListener(
           class: List,
           inlineToolbar: true,
         },
+        image: {
+          class: SimpleImage,
+          inlineToolbar: true,
+        },
+        embed: {
+          class: Embed,
+          services: {
+            youtube: true,
+            codepen: true,
+            twitter: true,
+          }
+        }
       },
     });
 
@@ -34,6 +48,8 @@ document.addEventListener(
             
             body: JSON.stringify(data)
           })
+        }).then(function(){
+          editor.blocks.clear()
         });
         
       });

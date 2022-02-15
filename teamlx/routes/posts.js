@@ -19,11 +19,15 @@ router.get("/create",isLoggedIn, (req,res,next)=>{
 })
 
 router.post("/create",isLoggedIn, (req,res,next)=>{
-    console.log(req.session)
-    console.log(req.body.blocks)
+   
+    // console.log(req.body.blocks)
+    let now = new Date()
+    let nowString = now.toISOString().split('.')[0].replace(/[^\d]/gi,'');
 
+    
     const postDetails = {
-     
+        kind: "post",
+        publishedAt: nowString,
         content: req.body.blocks,
         author: req.session.user._id
     }

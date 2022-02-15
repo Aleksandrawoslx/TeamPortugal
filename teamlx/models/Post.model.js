@@ -1,9 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema(
-  {
-    // header: { type: String, required: true},
+  { 
+    kind: {type: String},
     content: { type: Array, required: true},
+    publishedAt: {type: String},
     // link: String,
     author: { type: Schema.Types.ObjectId, ref: "User" },
   },

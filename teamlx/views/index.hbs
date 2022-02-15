@@ -1,8 +1,26 @@
-<section class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title-newseater">NewsEater</h1>
-      <p class="homepage-paragraph">lorem ipsum something something </p>
-    </div>
-  </div>
+<section >
+
+<section class="posts-details">
+  
+
+  {{#each posts}}
+
+  {{#if this.kind}}
+ 
+    {{>postCard this}}
+
+    {{else}}
+
+    {{>newsCard this}}
+
+  {{/if}}
+
+
+    
+  {{/each}}
 </section>
+
+<a href="/posts/read-posts">Back</a>
+
+</section>
+ 
