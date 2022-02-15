@@ -1,20 +1,22 @@
+<h2>Main thread</h2>
 
+<div id="editor">MY POST</div>
 
-<h3>Your Posts</h3>
+<button id="editorSend">Send</button>
+<section class="posts-details">
 
-<div class="posts-details"></div>
-{{#each posts}}
+  {{#each posts}}
+ 
+    {{>postCard this}}
+    
+  {{/each}}n
+</section>
 
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h6 class="card-title">{{this.header}}</h6>
-      <p class="card-text">{{this.description}}</p>
-    </div>
-  </div>
+<a href="/posts/read-posts">Back</a>
 
-  </div>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
 
-{{/each}}
-
-  </div>
-
+<script src="/js/script.js"></script>
+>>>>>>> bfb6bb02e0458ee5cf822ecc865514379c89a282

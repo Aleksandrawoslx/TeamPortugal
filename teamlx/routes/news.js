@@ -23,12 +23,4 @@ router.get("/", (req, res) => {
     });
 });
 
-// const search = document.querySelector(".search");
-// const input = document.querySelector(".input");
-// const listOfNews = document.querySelector(".news-list");
-// search.addEventListener("submit", retrieve)
-// function retrieve(event) {
-//     const apiKey =
-// }
-
 module.exports = router;
