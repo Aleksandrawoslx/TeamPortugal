@@ -1,12 +1,12 @@
-
 {{#if userInSession}}
   <h5 class="profile-hello">Hello, {{userInSession.username}}!</h5>
-  <button class="profile-buttons">
+  <br />
+  <p class="profile-hello-p">Thank you for creating an account :)</p>
+
+  {{!-- <button class="profile-buttons">
     <a href="/users/edit">Update Your Profile Information</a>
   </button> </br>
   <form action="/users/{{_id}}/delete" method="POST"> <!-- what is the correct path? -->
             <button id="delete-account" class="profile-buttons">Delete Your Account</button>
-  </form>
-{{else}}
-  <p>Still no logged in user, sorry!</p>
+  </form> --}}
 {{/if}}
