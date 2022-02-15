@@ -21,6 +21,15 @@
     ></script> }}
     {{! <link rel="stylesheet" href="/stylesheets/debug.css" /> }}
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    
+    <script type = "text/JavaScript">
+         <!--
+            function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+         //-->
+      </script>
+  
   </head>
 
   <body>
@@ -43,7 +52,10 @@
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="/posts/create">Post</a>
-            <a class="nav-link" href="/posts/read-posts">Read</a>     
+            <a class="nav-link" href="/posts/read-posts">Read</a>  
+            
+            <a class="nav-link" href="/news">News</a>
+
             <a class="nav-link" href="/signup">Register</a>
                 
             <a class="nav-link" href="/login">Login</a>
@@ -58,6 +70,9 @@
         </div>
       </div>
     </nav>
+
+<body onload = "JavaScript:AutoRefresh(30000);">
+   </body>
 
     {{{body}}}
 

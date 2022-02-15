@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     .everything({
       //q: "bitcoin",
       domains:
-        "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com",
+        "nbcnews.com, edition.cnn.com, foxnews.com, msnbc.com, www.nbcnews.com, bbc.co.uk, techcrunch.com, cnet.com",
       language: "en",
       page: 1,
     })
