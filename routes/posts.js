@@ -37,6 +37,13 @@ router.post("/create",isLoggedIn, (req,res,next)=>{
     })
 })
 
+router.post("/:postId/delete", isLoggedIn, (req, res) => {
+    Post.findByIdAndDelete(req.params.postId)
+      .then(() => res.redirect("/"))
+      .catch((error) => console.log(error));
+  });
+
+module.exports = router;
 
 
 

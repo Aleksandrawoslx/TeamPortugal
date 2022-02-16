@@ -1,79 +1,18 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.container {
+  width: 50vw;
+  margin:auto;
+  margin-bottom: 2rem;
 }
 
-a {
-  color: #0b6081;
+nav {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
-h1 {
-  color: 15px;
-}
-
-.container,
-#form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+form {
+  margin-top: 6rem;
 }
 
 button {
-  padding: 5%;
-  margin: auto;
-  margin-top: 0.8rem;
-  margin-bottom: 0;
-  border: none;
-  border-radius: 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card {
-  margin: 1rem;
-}
-
-.news-thread {
-  margin-top: 2rem;
-}
-
-.profile-hello {
-  margin-top: 5rem;
-}
-
-.posts-all,
-.profile-hello,
-.profile-hello-p {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-buttons {
-  padding: 0;
-  margin-top: 2rem;
-  background-color: transparent;
-}
-
-#delete-account {
-  padding: 1rem;
-  margin-top: 0;
-  text-decoration: underline;
-  color: #0b6081;
-}
-
-.card-title {
-  font-weight: bold;
-}
-
-#editor {
-  border: 1px solid red
+  margin-top: .5rem;
 }
