@@ -77,7 +77,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/profile");
+        res.render("users/account-created");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -139,7 +139,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/profile");
+        return res.redirect("/");
       });
     })
 
@@ -152,61 +152,50 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("users/user-profile", { userInSession: req.session.user });
+  User.findById(req.session.user._id)
+    .then((userDetails) => {
+      res.render("users/user-profile", { userInSession: userDetails });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
-// router.get("/edit", isLoggedIn, (req, res) => {
-//   res.render("edit-profile", { userInSession: req.session.user });
-// });
+router.get("/edit-profile", isLoggedIn, (req, res) => {
+  User.findById(req.session.user._id)
+    .then((userDetails) => {
+      res.render("users/edit-profile", { userInSession: userDetails });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
-// /////
-// ////////
+router.post("/edit-profile", isLoggedIn, (req, res) => {
+  const userId = req.session.user._id;
+  const newDetails = {
+    username: req.body.username,
+    email: req.body.email,
+  };
+  User.findByIdAndUpdate(userId, newDetails, { new: true })
+    .then(() => {
+      console.log(userId + newDetails);
+      res.render("users/updated");
+    })
+    .catch((err) => {
+      console.log("Error updating user details:", err);
+    });
+});
 
-// router.get("/:id/edit", (req, res, next) => {
-//   const { id } = req.params;
-//   console.log("req.params:", req.params);
-//   User.findById(id)
-//     .then((userDetails) => {
-//       console.log("user to edit:", userDetails);
-//       res.render("users/edit-profile", { user: userDetails });
-//     })
-//     .catch((err) => {
-//       console.log("Error getting user details from DB...", err);
-//     });
-// });
-
-// router.post("/:id/edit", (req, res, next) => {
-//   console.log("req.params:", req.params);
-//   const { userId } = req.params;
-//   const { username, email, passwordHash } = req.body;
-//   User.findByIdAndUpdate(
-//     userId,
-//     { username, email, passwordHash },
-//     { new: true }
-//   )
-//     .then(() => {
-//       res.redirect("/profile");
-//     })
-//     .catch((err) => {
-//       console.log("Error updating profile...", err);
-//     });
-// });
-
-// router.post("/:id/delete", (req, res, next) => {
-//   const { id } = req.params;
-//   console.log("req.params:", req.params);
-//   User.findByIdAndDelete(id)
-//     .then(() => {
-//       res.redirect("/signup");
-//       console.log("deleting profile successful");
-//     })
-//     .catch((err) => {
-//       console.log("Error deleting user...", err);
-//     });
-// });
-
-// ////////
-// /////
+router.post("/delete", isLoggedIn, (req, res) => {
+  User.findByIdAndDelete(req.session.user._id)
+    .then(() => {
+      res.render("users/removed-profile");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {

@@ -1,17 +1,13 @@
 <h3>Update Your Information:</h3>
 
-<form action="{{user_id}}/edit" method="post">
+<form action="/edit-profile" method="post">
   <label>
-    <input type="text" name="username" value="{{user.username}}" />
+    <input type="text" name="username" value="{{userInSession.username}}" />
   </label>
 
   <label>
-    <input type="text" name="email" value="{{user.email}}" />
+    <input type="text" name="email" value="{{userInSession.email}}" />
   </label>
 
-  <label>
-    <input type="text" name="password" value="{{user.passwordHash}}" />
-  </label>
-
-  <button>Update</button>
+  <button type="submit">Update</button>
 </form>
