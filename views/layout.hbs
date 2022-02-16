@@ -9,57 +9,52 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
 
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>newsEater</title>
   </head>
   <body>
     <div class="container">
-        <nav class="navbar is-warning is-fixed-top" role="navigation" aria-label="dropdown navigation">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/">All</a>
-        <a class="navbar-item"  href="/posts/read-posts">Postfeed</a>
-        <a class="navbar-item"  href="/news">News</a>
-        <a class="navbar-item" href="/posts/create">Write</a>
+      <nav
+        class="navbar is-warning is-fixed-top"
+        role="navigation"
+        aria-label="dropdown navigation"
+      >
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">All</a>
+          <a class="navbar-item" href="/posts/read-posts">Postfeed</a>
+          <a class="navbar-item" href="/news">News</a>
+          <a class="navbar-item" href="/posts/create">Write</a>
 
-      </div>
+        </div>
 
-      <div class="navbar-end">
+        <div class="navbar-end">
 
-        <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link">
-      Profile
-    </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Your Account
+            </a>
 
-    <div class="navbar-dropdown ">
+            <div class="navbar-dropdown">
 
-       <a class="navbar-item" href="/signup">Register</a>
+              <a class="navbar-item" href="/profile">Profile</a>
 
-        <a class="navbar-item" href="/login">Login</a>
-        <a class="navbar-item" href="/logout">Logout</a>
-      <hr class="navbar-divider">
-      
-    </div>
-  </div>
+              <a class="navbar-item" href="/signup">Register</a>
 
+              <a class="navbar-item" href="/login">Login</a>
+              <a class="navbar-item" href="/logout">Logout</a>
+              <hr class="navbar-divider" />
 
+            </div>
+          </div>
 
+        </div>
 
-        
-        
-       
-      </div>
-
-    </nav>
+      </nav>
     </div>
 
     <div class="container">
-         {{{body}}}
+      {{{body}}}
     </div>
 
-    
-
-    
-
- 
   </body>
 </html>
