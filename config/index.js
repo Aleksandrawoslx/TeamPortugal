@@ -26,7 +26,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
 // Connects the mongo uri to maintain the same naming structure
-const MONGO_URI = require("../utils/consts");
+const MONGODB_URI = require("../utils/consts");
 
 // Middleware configuration
 module.exports = (app) => {
@@ -57,7 +57,7 @@ module.exports = (app) => {
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: MONGO_URI,
+        mongoUrl: MONGODB_URI,
         ttl: 60 * 60,
       }),
     })
