@@ -22,4 +22,8 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("news-search", (req,res)=>{
+  
+})
+
 module.exports = router;
