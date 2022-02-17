@@ -12,14 +12,9 @@ For this MVP we used: HTML, CSS, JavaScript, MongoDB, Express.js, Ironlauncher A
 
 ## MVP
 
-This MVP includes <insert what it includes once it's finished>.
-
-The website is responsive enough to be used on a mobile device.
+This MVP includes ...
 
 ## Team 
 
 Alexandra Wos & Ana Pavão
 
-# Slides:
-
-Link for our presentation slides: <insert link>

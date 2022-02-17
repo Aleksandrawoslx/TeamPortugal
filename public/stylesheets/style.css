@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  margin-top: 5rem
+  margin-top: 7rem
 }
 
 .container {
@@ -10,16 +10,37 @@ body {
   margin-bottom: 2rem;
 }
 
-nav {
-  margin-left: 2rem;
-  margin-right: 2rem;
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.navbar-item {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+#form {
+  padding-top: 40px;
+  text-align: center;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
 
+.profile {
+  padding-top: 40px;
+  text-align: center;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+#delete-account {
+  margin-top: 2rem;
+}
+
+
+@media only screen and (max-width: 1050px) {
+  #form {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body {
+    margin-top: 20rem
+  }
 }

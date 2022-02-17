@@ -8,7 +8,7 @@ document.addEventListener(
       holder: "editor",
       autofocus: true,
       placeholder:
-        "Your article here, you can paste image, your code from codepen or youtube video it you like",
+        "Paste your content here: an image, your code from codepen, a youtube video, or just plain text!",
       tools: {
         header: {
           class: Header,

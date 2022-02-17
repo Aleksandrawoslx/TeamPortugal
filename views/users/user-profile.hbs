@@ -1,11 +1,13 @@
 {{#if userInSession}}
+<div class="profile">
   <h5 class="profile-hello">Hello, {{userInSession.username}}!</h5>
   <br />
 
-  <button class="profile-buttons">
+  <button class="button is-link is-warning" class="profile-buttons">
     <a href="/edit-profile">Update Your Profile Information</a>
   </button> </br>
   <form action="/delete" method="POST">
-    <button id="delete-account" class="profile-buttons">Delete Your Account</button>
+    <button id="delete-account" class="button is-link is-warning" class="profile-buttons">Delete Your Account</button>
   </form>
+  </div>
 {{/if}}

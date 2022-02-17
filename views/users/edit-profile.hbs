@@ -2,12 +2,23 @@
 
 <form action="/edit-profile" method="post">
   <label>
-    <input type="text" name="username" value="{{userInSession.username}}" />
+    <input
+      class="input inputs"
+      type="text"
+      name="username"
+      value="{{userInSession.username}}"
+    />
   </label>
 
   <label>
-    <input type="text" name="email" value="{{userInSession.email}}" />
+    <input
+      class="input inputs"
+      type="text"
+      name="email"
+      value="{{userInSession.email}}"
+    />
   </label>
+  <br />
 
-  <button type="submit">Update</button>
+  <button class="button is-link is-warning" type="submit">Update</button>
 </form>
