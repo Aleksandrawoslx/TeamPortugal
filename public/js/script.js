@@ -8,7 +8,7 @@ document.addEventListener(
       minHeight: 50,
       holder: "editor",
       autofocus: true,
-      placeholder: "Your article here",
+      placeholder: "Your article here, you can paste image, your code from codepen or youtube video it you like",
       tools: {
         header: {
           class: Header,
