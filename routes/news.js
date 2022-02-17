@@ -15,6 +15,7 @@ router.get("/", (req, res) => {
       console.log(err);
     });
 });
+
 router.post("/news-search", (req, res) => {
   console.log(req.body.search);
   const queryTerm = req.body.search;
@@ -25,6 +26,7 @@ router.post("/news-search", (req, res) => {
       language: "en",
     })
     .then((data) => {
+      console.log(data.articles)
       res.render("post/news-thread", { article: data.articles });
     })
     .catch((err) => {
