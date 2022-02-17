@@ -4,11 +4,11 @@ document.addEventListener(
     console.log("teamlx JS imported successfully!");
 
     const editor = new EditorJS({
-      
       minHeight: 50,
       holder: "editor",
       autofocus: true,
-      placeholder: "Your article here, you can paste image, your code from codepen or youtube video it you like",
+      placeholder:
+        "Your article here, you can also paste image, your code from codepen or youtube video it you like (so far)",
       tools: {
         header: {
           class: Header,
@@ -28,30 +28,31 @@ document.addEventListener(
             youtube: true,
             codepen: true,
             twitter: true,
-          }
-        }
+          },
+        },
       },
     });
 
     document
       .getElementById("editorSend")
       .addEventListener("click", function () {
-        editor.save().then(function (data) {
-          console.log(data);
+        editor
+          .save()
+          .then(function (data) {
+            console.log(data);
 
-          fetch('/posts/create', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            fetch("/posts/create", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
 
-            
-            body: JSON.stringify(data)
+              body: JSON.stringify(data),
+            });
           })
-        }).then(function(){
-          editor.blocks.clear()
-        });
-        
+          .then(function () {
+            editor.blocks.clear();
+          });
       });
   },
   false

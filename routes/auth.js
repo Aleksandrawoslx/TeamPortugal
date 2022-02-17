@@ -154,7 +154,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 router.get("/profile", isLoggedIn, (req, res) => {
   User.findById(req.session.user._id)
     .then((userDetails) => {
-      res.render("users/user-profile", { userInSession: userDetails });
+      res.render("users/user-profile", {userInSession: userDetails});
     })
     .catch((err) => {
       console.log(err);

@@ -21,7 +21,13 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 router.post("/create", isLoggedIn, (req, res, next) => {
   // console.log(req.body.blocks)
   let now = new Date();
-  let nowString = now.toISOString().split(".")[0].replace(/[^\d]/gi, "");
+  function strMonth(month) {
+    if (month<10) {
+        return "0" + month.toString()
+    }
+    return month
+}
+let nowString = now.getFullYear() +"-"+ strMonth(now.getMonth() + 1)  +"-"+ now.getDate(); 
 
   const postDetails = {
     kind: "post",
