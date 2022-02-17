@@ -9,13 +9,10 @@ router.get("/read-posts", (req, res, next) => {
   Post.find() 
     .populate("author")
     .then((postsfromDb) => {
-      const currentUserId = req.session.user._id.toString();
-      console.log(postsfromDb);
-      console.log(currentUserId)
-      res.render("post/read-posts", { posts: postsfromDb,
-       currentUserId: currentUserId});
+     
+      res.render("post/read-posts", { posts: postsfromDb});
     });
-});
+})
 
 router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("post/new-post");
@@ -28,7 +25,6 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
   const postDetails = {
     kind: "post",
-    stringId: req.session.user._id.toString(),
     publishedAt: nowString,
     content: req.body.blocks,
     author: req.session.user._id,
@@ -39,11 +35,11 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  const currentUserId = req.session.user._id.toString();
-  const postId = req.params.postId.toString();
+  const currentUserId = req.session.user._id;
+  const postId = req.params.postId;
 
   Post.findById(postId).then(function (post) {
-    if (currentUserId == post.author) {
+    if (currentUserId.toString() == post.author.toString()) {
       Post.findByIdAndDelete(req.params.postId)
         .then(() => res.redirect("/posts/read-posts"))
         .catch((error) => console.log(error));
