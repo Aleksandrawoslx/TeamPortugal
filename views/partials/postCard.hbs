@@ -1,29 +1,30 @@
-
 <p>
-{{this.header}}
+  {{this.header}}
 </p>
-
-<p>{{this.author.username}}</p>
 
 {{#each this.content}}
-    {{#if this.data.text}}
-        {{this.data.text}}
-    {{/if}}
+  {{#if this.data.text}}
+    {{this.data.text}}
+  {{/if}}
 
-    {{#if this.data.embed}}
+  {{#if this.data.embed}}
 
-        <iframe width="560" height="315" src={{this.data.embed}}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-    {{/if}}
-    
+    <iframe
+      width="560"
+      height="315"
+      src={{this.data.embed}}
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+  {{/if}}
+
 {{/each}}
 
+<p>Shared by: {{this.author.username}}</p>
 <p>
-     <form action="/posts/{{this._id}}/delete" method="POST">
-            <button>Delete</button>
-        </form>
+  <form action="/posts/{{this._id}}/delete" method="POST">
+    <button>Delete</button>
+  </form>
 </p>
-   
-
-
-
