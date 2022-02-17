@@ -7,6 +7,7 @@ const router = require("express").Router();
 router.get("/read-posts", (req, res, next) => {
   console.log(req.session);
   Post.find()
+    .sort({ createdAt: -1 })
     .populate("author")
     .then((postsfromDb) => {
       res.render("post/read-posts", { posts: postsfromDb });
@@ -27,6 +28,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     publishedAt: nowString,
     content: req.body.blocks,
     author: req.session.user,
+    // aleks version// author: req.session.user._id
   };
   Post.create(postDetails).then((post) => {
     res.redirect("/posts/read-posts");

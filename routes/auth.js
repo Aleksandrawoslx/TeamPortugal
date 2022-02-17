@@ -176,7 +176,6 @@ router.get("/edit-profile", isLoggedIn, (req, res) => {
 });
 
 router.post("/edit-profile", isLoggedIn, (req, res) => {
-  console.log("req.session.user", req.session.user);
   const userId = req.session.user;
   const newDetails = {
     username: req.body.username,
