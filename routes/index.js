@@ -19,8 +19,10 @@ router.get("/", (req, res, next) => {
 
   newsapi.v2
     .everything({
-      q: "cnn",
+      sources:
+        "bbc-news, edition.cnn.com, theverge.com/tech, cnet.com/news, technewsworld.com, techcrunch.com, euronews.com, vox.com, nbcnews.com, time.com",
       language: "en",
+      sortBy: "publishedAt",
     })
     .then((data) => {
       mixArr = mixArr.concat(data.articles);
