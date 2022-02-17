@@ -5,11 +5,15 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const router = require("express").Router();
 
 router.get("/read-posts", (req, res, next) => {
-  Post.find()
+  console.log(req.session)
+  Post.find() 
     .populate("author")
     .then((postsfromDb) => {
+      const currentUserId = req.session.user._id.toString();
       console.log(postsfromDb);
-      res.render("post/read-posts", { posts: postsfromDb });
+      console.log(currentUserId)
+      res.render("post/read-posts", { posts: postsfromDb,
+       currentUserId: currentUserId});
     });
 });
 
@@ -24,6 +28,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 
   const postDetails = {
     kind: "post",
+    stringId: req.session.user._id.toString(),
     publishedAt: nowString,
     content: req.body.blocks,
     author: req.session.user._id,
@@ -41,10 +46,10 @@ router.post("/:postId/delete", isLoggedIn, (req, res) => {
   Post.findById(postId).then(function (post) {
     if (currentUserId == post.author) {
       Post.findByIdAndDelete(req.params.postId)
-        .then(() => res.redirect("/"))
+        .then(() => res.redirect("/posts/read-posts"))
         .catch((error) => console.log(error));
     }
-    else res.send ("You can't delete the article you have not written")
+    else res.send ("Hello world")
   });
 });
 
