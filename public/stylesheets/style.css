@@ -14,3 +14,12 @@ nav {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
+.navbar-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}

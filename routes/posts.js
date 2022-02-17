@@ -5,14 +5,13 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const router = require("express").Router();
 
 router.get("/read-posts", (req, res, next) => {
-  console.log(req.session)
-  Post.find() 
+  console.log(req.session);
+  Post.find()
     .populate("author")
     .then((postsfromDb) => {
-     
-      res.render("post/read-posts", { posts: postsfromDb});
+      res.render("post/read-posts", { posts: postsfromDb });
     });
-})
+});
 
 router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("post/new-post");
@@ -27,7 +26,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     kind: "post",
     publishedAt: nowString,
     content: req.body.blocks,
-    author: req.session.user._id,
+    author: req.session.user,
   };
   Post.create(postDetails).then((post) => {
     res.redirect("/posts/read-posts");
@@ -35,15 +34,21 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  const currentUserId = req.session.user._id;
+  const currentUserId = req.session.user;
   const postId = req.params.postId;
+  console.log("inside delete route");
+  console.log("req.session.user", req.session.user);
 
   Post.findById(postId).then(function (post) {
+    console.log("hello post!");
+    console.log(post);
     if (currentUserId.toString() == post.author.toString()) {
       Post.findByIdAndDelete(req.params.postId)
-        .then(() => res.redirect("/posts/read-posts"))
+
+        .then(() => res.render("post/delete-success"))
+        // .then(() => res.redirect("/posts/read-posts"))
         .catch((error) => console.log(error));
-    } else res.send("You can't delete the article you have not written");
+    } else res.render("post/delete-forbidden");
   });
 });
 

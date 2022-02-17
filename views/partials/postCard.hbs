@@ -24,11 +24,11 @@
 
 <p>Shared by: {{this.author.username}}</p>
 
+{{!-- {{#if session}} --}}
 
 <p>
- <form action="/posts/{{this._id}}/delete" method="POST">
+  <form action="/posts/{{this._id}}/delete" method="POST">
     <button>Delete</button>
   </form>
 </p>
-
-
+{{!-- {{/if}} --}}

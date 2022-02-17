@@ -139,7 +139,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user._id;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/posts/create");
       });
     })
 
@@ -152,8 +152,10 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, (req, res) => {
-  User.findById(req.session.user._id)
+  console.log("req.session.user", req.session.user);
+  User.findById(req.session.user)
     .then((userDetails) => {
+      console.log("user details:", userDetails);
       res.render("users/user-profile", { userInSession: userDetails });
     })
     .catch((err) => {
@@ -162,8 +164,10 @@ router.get("/profile", isLoggedIn, (req, res) => {
 });
 
 router.get("/edit-profile", isLoggedIn, (req, res) => {
-  User.findById(req.session.user._id)
+  console.log("req.session.user 2", req.session.user);
+  User.findById(req.session.user)
     .then((userDetails) => {
+      console.log("user details 2", userDetails);
       res.render("users/edit-profile", { userInSession: userDetails });
     })
     .catch((err) => {
@@ -172,14 +176,15 @@ router.get("/edit-profile", isLoggedIn, (req, res) => {
 });
 
 router.post("/edit-profile", isLoggedIn, (req, res) => {
-  const userId = req.session.user._id;
+  console.log("req.session.user", req.session.user);
+  const userId = req.session.user;
   const newDetails = {
     username: req.body.username,
     email: req.body.email,
   };
   User.findByIdAndUpdate(userId, newDetails, { new: true })
     .then(() => {
-      console.log(userId + newDetails);
+      console.log("userid + newDetails", userId + newDetails);
       res.render("users/updated");
     })
     .catch((err) => {
@@ -188,7 +193,7 @@ router.post("/edit-profile", isLoggedIn, (req, res) => {
 });
 
 router.post("/delete", isLoggedIn, (req, res) => {
-  User.findByIdAndDelete(req.session.user._id)
+  User.findByIdAndDelete(req.session.user)
     .then(() => {
       res.render("users/removed-profile");
     })
@@ -202,7 +207,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
     if (err) {
       return res.status(500).render("/", { errorMessage: err.message });
     }
-    res.redirect("/");
+    res.redirect("/posts/create");
   });
 });
 
