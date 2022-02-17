@@ -1,12 +1,15 @@
 const router = require("express").Router();
 const NewsAPI = require("newsapi");
+
 router.get("/", (req, res) => {
   // res.send("news");
   const newsapi = new NewsAPI("c49288be43e54d4cb6223673e4281426");
   newsapi.v2
     .everything({
-      q: "cnn",
+      sources:
+        "bbc-news, edition.cnn.com, theverge.com/tech, cnet.com/news, technewsworld.com, techcrunch.com, euronews.com, vox.com, nbcnews.com, time.com",
       language: "en",
+      sortBy: "publishedAt",
     })
     .then((data) => {
       res.render("post/news-thread", { article: data.articles });
@@ -17,13 +20,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/news-search", (req, res) => {
-  console.log(req.body.search);
   const queryTerm = req.body.search;
   const newsapi = new NewsAPI(process.env.API_KEY);
   newsapi.v2
     .everything({
       q: queryTerm,
       language: "en",
+      sortBy: "publishedAt",
     })
     .then((data) => {
       console.log(data.articles)

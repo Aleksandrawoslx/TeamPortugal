@@ -39,7 +39,6 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  
   const currentUserId = req.session.user._id.toString();
   const postId = req.params.postId.toString();
 
@@ -48,8 +47,7 @@ router.post("/:postId/delete", isLoggedIn, (req, res) => {
       Post.findByIdAndDelete(req.params.postId)
         .then(() => res.redirect("/posts/read-posts"))
         .catch((error) => console.log(error));
-    }
-    else res.send ("Hello world")
+    } else res.send("You can't delete the article you have not written");
   });
 });
 

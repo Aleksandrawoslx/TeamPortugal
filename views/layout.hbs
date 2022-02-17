@@ -36,12 +36,13 @@
 
             <div class="navbar-dropdown">
 
-              <a class="navbar-item" href="/profile">Profile</a>
-
-              <a class="navbar-item" href="/signup">Register</a>
-
-              <a class="navbar-item" href="/login">Login</a>
-              <a class="navbar-item" href="/logout">Logout</a>
+              {{#if session}}
+                <a class="navbar-item" href="/profile">Profile</a>
+                <a class="navbar-item" href="/logout">Logout</a>
+              {{else}}
+                <a class="navbar-item" href="/signup">Register</a>
+                <a class="navbar-item" href="/login">Login</a>
+              {{/if}}
               <hr class="navbar-divider" />
 
             </div>

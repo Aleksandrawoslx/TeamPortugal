@@ -12,9 +12,11 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerPartials(__dirname + "/views/partials")
-hbs.registerHelper('ifeq', function (a, b, options) {
-  if (a == b) { return options.fn(this); }
+hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerHelper("ifeq", function (a, b, options) {
+  if (a == b) {
+    return options.fn(this);
+  }
   return options.inverse(this);
 });
 
@@ -30,14 +32,15 @@ const capitalized = (string) =>
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
+
+const passingUserInfo = require("./middleware/passingUserInfo");
+app.use("/", passingUserInfo);
+
 const index = require("./routes/index");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
-
-const userRoutes = require("./routes/users");
-app.use("/", userRoutes);
 
 const postRoutes = require("./routes/posts");
 app.use("/posts", postRoutes);

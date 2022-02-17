@@ -4,7 +4,7 @@
 
 This website was our second project for the Ironhack's Web Development Bootcamp.
 
-You can visit it here: <insert heroku link>
+You can visit it here: https://newseater.herokuapp.com/
 
 ## Technologies and Tools
 
@@ -12,7 +12,7 @@ For this MVP we used: HTML, CSS, JavaScript, MongoDB, Express.js, Ironlauncher A
 
 ## MVP
 
-This MVP includes a homepage, <insert what it includes once it's finished>.
+This MVP includes <insert what it includes once it's finished>.
 
 The website is responsive enough to be used on a mobile device.
 
