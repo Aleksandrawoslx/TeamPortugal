@@ -3,7 +3,12 @@ const Post = require("../models/Post.model");
 const NewsAPI = require("newsapi");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
+router.get("/", (req,res,next) =>{
+  res.send("Hello from the other side")
+})
+
+//  temporary route change (until newsapi works again)
+router.get("/newsfeed", (req, res, next) => {
   let mixArr = [];
 
   Post.find()
