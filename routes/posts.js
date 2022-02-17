@@ -34,17 +34,17 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  // Step 1: check current user is owner
-  const currentUserId = req.session.user._id;
-  const postId = req.params.postId;
+  
+  const currentUserId = req.session.user._id.toString();
+  const postId = req.params.postId.toString();
 
   Post.findById(postId).then(function (post) {
-    if (currentUserId.toString() === post.author.toString()) {
+    if (currentUserId == post.author) {
       Post.findByIdAndDelete(req.params.postId)
         .then(() => res.redirect("/"))
         .catch((error) => console.log(error));
     }
-    else res.send ("Hello world")
+    else res.send ("You can't delete the article you have not written")
   });
 });
 
