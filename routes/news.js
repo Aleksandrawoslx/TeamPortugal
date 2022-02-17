@@ -3,7 +3,7 @@ const NewsAPI = require("newsapi");
 
 router.get("/", (req, res) => {
   // res.send("news");
-  const newsapi = new NewsAPI(process.env.API_KEY);
+  const newsapi = new NewsAPI("c49288be43e54d4cb6223673e4281426");
   newsapi.v2
     .everything({
       sources:
@@ -29,6 +29,7 @@ router.post("/news-search", (req, res) => {
       sortBy: "publishedAt",
     })
     .then((data) => {
+      console.log(data.articles)
       res.render("post/news-thread", { article: data.articles });
     })
     .catch((err) => {

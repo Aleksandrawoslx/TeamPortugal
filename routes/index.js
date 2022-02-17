@@ -15,7 +15,7 @@ router.get("/", (req, res, next) => {
       // res.render("post/read-posts", {posts: postsfromDb})
     });
 
-  const newsapi = new NewsAPI(process.env.API_KEY);
+  const newsapi = new NewsAPI("c49288be43e54d4cb6223673e4281426");
 
   newsapi.v2
     .everything({

@@ -13,6 +13,12 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerHelper("ifeq", function (a, b, options) {
+  if (a == b) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 const app = express();
 

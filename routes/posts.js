@@ -34,11 +34,16 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  Post.findByIdAndDelete(req.params.postId)
-    .then(() => res.redirect("/"))
-    .catch((error) => console.log(error));
-});
+  const currentUserId = req.session.user._id.toString();
+  const postId = req.params.postId.toString();
 
-module.exports = router;
+  Post.findById(postId).then(function (post) {
+    if (currentUserId == post.author) {
+      Post.findByIdAndDelete(req.params.postId)
+        .then(() => res.redirect("/"))
+        .catch((error) => console.log(error));
+    } else res.send("You can't delete the article you have not written");
+  });
+});
 
 module.exports = router;
