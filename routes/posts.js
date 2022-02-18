@@ -37,15 +37,15 @@ let nowString = now.getFullYear() +"-"+ strMonth(now.getMonth() + 1)  +"-"+ now.
     // aleks version// author: req.session.user._id
   };
   Post.create(postDetails).then((post) => {
-    res.redirect("/posts/read-posts");
+    res.redirect("/posts/read-posts")
   });
 });
 
 router.post("/:postId/delete", isLoggedIn, (req, res) => {
-  const currentUserId = req.session.user;
+  const currentUserId = req.session.user._id;
   const postId = req.params.postId;
   console.log("inside delete route");
-  console.log("req.session.user", req.session.user);
+  console.log("req.session.user", req.session.user._id);
 
   Post.findById(postId).then(function (post) {
     console.log("hello post!");

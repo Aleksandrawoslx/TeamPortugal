@@ -36,7 +36,9 @@ input {
 .card {
   margin: 10px;
 }
-
+.hidden {
+  display: none
+}
 
 @media only screen and (max-width: 1050px) {
   #form {

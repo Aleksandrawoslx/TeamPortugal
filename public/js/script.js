@@ -52,7 +52,10 @@ document.addEventListener(
           })
           .then(function () {
             editor.blocks.clear();
-          });
+          })
+          .then(function (){
+            document.getElementById("success").classList.remove("hidden")
+           });
       });
   },
   false
