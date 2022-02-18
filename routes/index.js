@@ -20,7 +20,7 @@ router.get("/", (req, res, next) => {
       // res.render("post/read-posts", {posts: postsfromDb})
     });
 
-  const newsapi = new NewsAPI(process.env.API_KEY);
+  const newsapi = new NewsAPI("f07b973466da4070a05742e1dc7d5a3c");
 
   newsapi.v2
     .everything({
@@ -33,14 +33,13 @@ router.get("/", (req, res, next) => {
       mixArr = mixArr.concat(data.articles);
 
       mixArr.sort(function (a, b) {
-          return (a.publishedAt).localeCompare(b.publishedAt)
-
+        return a.publishedAt.localeCompare(b.publishedAt);
       });
       return mixArr.reverse();
       // res.render("post/news-thread", { article: data.articles });
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
       res.render("index", { posts: data });
     })
     .catch((err) => {
