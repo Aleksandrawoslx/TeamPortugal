@@ -3,12 +3,12 @@ const Post = require("../models/Post.model");
 const NewsAPI = require("newsapi");
 
 /* GET home page */
-router.get("/", (req,res,next) =>{
-  res.send("Hello from the other side")
-})
+// router.get("/", (req,res,next) =>{
+//   res.send("Hello from the other side")
+// })
 
 //  temporary route change (until newsapi works again)
-router.get("/newsfeed", (req, res, next) => {
+router.get("/", (req, res, next) => {
   let mixArr = [];
 
   Post.find()
@@ -20,7 +20,7 @@ router.get("/newsfeed", (req, res, next) => {
       // res.render("post/read-posts", {posts: postsfromDb})
     });
 
-  const newsapi = new NewsAPI("c49288be43e54d4cb6223673e4281426");
+  const newsapi = new NewsAPI(process.env.API_KEY);
 
   newsapi.v2
     .everything({
@@ -33,17 +33,14 @@ router.get("/newsfeed", (req, res, next) => {
       mixArr = mixArr.concat(data.articles);
 
       mixArr.sort(function (a, b) {
-        if (a.publishedAt < b.publishedAt) {
-          return 1;
-        }
-        if (a.publishedAt > b.publishedAt) {
-          return -1;
-        }
+          return (a.publishedAt).localeCompare(b.publishedAt)
+
       });
-      return mixArr;
+      return mixArr.reverse();
       // res.render("post/news-thread", { article: data.articles });
     })
     .then(function (data) {
+      console.log(data)
       res.render("index", { posts: data });
     })
     .catch((err) => {

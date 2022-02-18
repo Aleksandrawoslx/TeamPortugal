@@ -155,7 +155,6 @@ router.get("/profile", isLoggedIn, (req, res) => {
   console.log("req.session.user", req.session.user);
   User.findById(req.session.user)
     .then((userDetails) => {
-      console.log("user details:", userDetails);
       res.render("users/user-profile", { userInSession: userDetails });
     })
     .catch((err) => {

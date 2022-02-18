@@ -1,34 +1,47 @@
-<p>
-  {{this.header}}
-</p>
+<div class="card">
+  <div class="card-image">
+    <figure class="image">
+      {{#each this.content}}
+        {{#ifeq this.type "image"}}
+          <img width="300px" height="200px" src="{{this.data.url}}" alt="" />
+        {{/ifeq}}
+      {{/each}}
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">{{this.title}}</p>
+        <p class="subtitle is-6">
+          {{#each this.content}}
+            {{#if this.data.text}}
+              {{this.data.text}}
+            {{/if}}
 
-{{#each this.content}}
-  {{#if this.data.text}}
-    {{this.data.text}}
-  {{/if}}
+            {{#if this.data.embed}}
 
-  {{#if this.data.embed}}
+              <iframe
+                width="560"
+                height="315"
+                src={{this.data.embed}}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
 
-    <iframe
-      width="560"
-      height="315"
-      src={{this.data.embed}}
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+            {{/if}}
 
-  {{/if}}
+          {{/each}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-{{/each}}
-
-<p>Shared by: {{this.author.username}}</p>
-
-{{!-- {{#if session}} --}}
+<p>Published by: <strong>{{this.author.username}}</strong> </p>
 
 <p>
   <form action="/posts/{{this._id}}/delete" method="POST">
     <button class="button is-link is-warning">Delete</button>
   </form>
 </p>
-{{!-- {{/if}} --}}
