@@ -21,13 +21,17 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 router.post("/create", isLoggedIn, (req, res, next) => {
   // console.log(req.body.blocks)
   let now = new Date();
-  function strMonth(month) {
-    if (month<10) {
-        return "0" + month.toString()
+  function padZero(str) {
+    if (str<10) {
+        return "0" + str.toString()
     }
-    return month
+    return str
 }
-let nowString = now.getFullYear() +"-"+ strMonth(now.getMonth() + 1)  +"-"+ now.getDate(); 
+
+
+
+
+let nowString = now.getFullYear() +"-"+ padZero(now.getMonth() + 1)  +"-"+ padZero(now.getDate()) + "T" + padZero(now.getHours()) + ":" + padZero(now.getMinutes()); 
 
   const postDetails = {
     kind: "post",
