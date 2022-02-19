@@ -29,8 +29,6 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 }
 
 
-
-
 let nowString = now.getFullYear() +"-"+ padZero(now.getMonth() + 1)  +"-"+ padZero(now.getDate()) + "T" + padZero(now.getHours()) + ":" + padZero(now.getMinutes()); 
 
   const postDetails = {
@@ -53,12 +51,11 @@ router.post("/:postId/delete", isLoggedIn, (req, res) => {
 
   Post.findById(postId).then(function (post) {
     console.log("hello post!");
-    console.log(post);
-    if (currentUserId.toString() == post.author.toString()) {
+    console.log(post);   
+    if (post.author.equals(req.session.user)) {
       Post.findByIdAndDelete(req.params.postId)
 
         .then(() => res.render("post/delete-success"))
-        // .then(() => res.redirect("/posts/read-posts"))
         .catch((error) => console.log(error));
     } else res.render("post/delete-forbidden");
   });

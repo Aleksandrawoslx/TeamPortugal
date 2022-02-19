@@ -175,7 +175,7 @@ router.get("/edit-profile", isLoggedIn, (req, res) => {
 });
 
 router.post("/edit-profile", isLoggedIn, (req, res) => {
-  const userId = req.session.user;
+  const userId = req.session.user._id;
   const newDetails = {
     username: req.body.username,
     email: req.body.email,
@@ -194,6 +194,14 @@ router.post("/delete", isLoggedIn, (req, res) => {
   User.findByIdAndDelete(req.session.user)
     .then(() => {
       res.render("users/removed-profile");
+    })
+    .then(()=>{
+      req.session.destroy((err) => {
+        if (err) {
+          return res.status(500).render("/", { errorMessage: err.message });
+        }
+        res.redirect("/posts/create");
+      });
     })
     .catch((err) => {
       console.log(err);
