@@ -4,7 +4,7 @@
 
 This website was our second project for the Ironhack's Web Development Bootcamp.
 
-You can visit it here: https://newseater.herokuapp.com/
+You can visit it here: https://anteaterlx.herokuapp.com/
 
 ## Technologies and Tools
 
